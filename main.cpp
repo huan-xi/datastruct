@@ -1,7 +1,11 @@
 #include "./Test/Test.h"
 
+
+
 int main() {
-    RunLinkTest();
-//    RunStudentList();
+//    RunLinkTest();
+    RunStudentList();
+//    RunLinkStackTest();
     return 0;
 }
+

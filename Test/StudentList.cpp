@@ -30,6 +30,8 @@ Student newStudent(char *sno, char *sname, float score);
 void addList();
 
 
+void SortList(SqlList *students);
+
 SqlList *students = NULL;
 
 int RunStudentList() {
@@ -66,21 +68,6 @@ int RunStudentList() {
                 break;
             case 7:
                 //输出两次
-                if (students->length == 0) {
-                    printf("还没有数据\n");
-                    break;
-                }
-                for (int i = 0; i < students->length; ++i) {
-                    if (students->data[i].score < 60)
-                        printf("第%d学生信息：%s %s %.2f\n", i + 1, students->data[i].sno, students->data[i].sname,
-                               students->data[i].score);
-                }
-                for (int i = 0; i < students->length; ++i) {
-                    if (students->data[i].score >= 60)
-                        printf("第%d学生信息：%s %s %.2f\n", i + 1, students->data[i].sno, students->data[i].sname,
-                               students->data[i].score);
-                }
-                printf("\n");
                 break;
             case 0:
                 break;
@@ -91,6 +78,8 @@ int RunStudentList() {
     DestroyList(students);
     return 0;
 }
+
+
 
 void insertList() {
     char sname[8];

@@ -8,5 +8,5 @@
 int RunLinkTest();
 //²âÊÔÑ§Éú±í
 int RunStudentList();
-
+void RunLinkStackTest();
 #endif //DATASTRUCT_TEST_H

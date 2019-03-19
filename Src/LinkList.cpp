@@ -166,6 +166,7 @@ void LL_Order(LinkList &L) {
     r = L;  //尾指针r指向头结点
     while (p != NULL) {
         q = L->next;
+
         pre = L;
         while (q != NULL && p->data > q->data) {
             pre = q;

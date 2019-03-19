@@ -86,10 +86,16 @@ void AddElem(SqlList *&L, ElemType e) {
 bool InsertElem(SqlList *&L, int i, ElemType e) {
     int j;
     if (i < 1 || i > L->length + 1)return false;
-    i--;
-    for (j = L->length; j < i; j--) {
-        L->data[j - 1] = L->data[j];
-    }
-    L->data[i]=e;
+    if(L->length==MaxSize)//±íÂú
+         return false;
+    for(j=L->length-1;j>=i-1;j--)//ºóÒÆ
+        L->data[j+1]=L->data[j];
+    L->data[i-1]=e;
     L->length++;
+    /*  i--;
+      for (j = L->length; j < i; j--) {
+          L->data[j - 1] = L->data[j];
+      }
+      L->data[i]=e;
+      L->length++;*/
 }
