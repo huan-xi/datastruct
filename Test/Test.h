@@ -8,5 +8,8 @@
 int RunLinkTest();
 //测试学生表
 int RunStudentList();
+//测试链栈
 void RunLinkStackTest();
+//进制转换
+void RunConversionTest();
 #endif //DATASTRUCT_TEST_H

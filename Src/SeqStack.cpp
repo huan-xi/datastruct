@@ -6,17 +6,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void SS_Initiate(SqStack *S)
+void SS_Initiate(SqStack &S)
 // 顺序栈的初始化，即构造一个空的顺序栈
 {
-    S->elem = (ElemType*)malloc(sizeof(ElemType)*MAXSIZE);
-    S->top=-1;
+    S.elem = (ElemType*)malloc(sizeof(ElemType)*MAXSIZE);
+    S.top=-1;
 }
 
-void SS_Free(SqStack * S)
+void SS_Free(SqStack &S)
 // 释放顺序栈
 {
-    free(S->elem);
+    free(S.elem);
 }
 
 bool SS_IsEmpty(SqStack S)
@@ -46,25 +46,25 @@ void SS_Print(SqStack S)
     printf("\n");
 }
 
-void SS_Push(SqStack *S, ElemType e)
+void SS_Push(SqStack &S, ElemType e)
 // 插入元素e为新的栈顶元素
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-    if(S->top==MAXSIZE-1) return;
-    S->top++;
-    S->elem[S->top] =e;
+    if(S.top==MAXSIZE-1) return;
+    S.top++;
+    S.elem[S.top] =e;
 
     /********** End **********/
 }
 
-void SS_Pop(SqStack *S, ElemType *e)
+void SS_Pop(SqStack &S, ElemType *e)
 // 删除S的栈顶元素，用e返回其值
 {
     // 请在这里补充代码，完成本关任务
-    if(S->top==-1) return;
-    *e=S->elem[S->top];
-    S->top--;
+    if(S.top==-1) return;
+    *e=S.elem[S.top];
+    S.top--;
 }
 
 void SS_Top(SqStack S, ElemType *e)

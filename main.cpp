@@ -6,7 +6,8 @@ int main() {
 
 //    RunLinkTest();
 //    RunStudentList();
-    RunLinkStackTest();
+//    RunLinkStackTest();
+    RunConversionTest();
     return 0;
 }
 
