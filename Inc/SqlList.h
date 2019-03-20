@@ -21,15 +21,15 @@ typedef struct {
 } SqlList;
 
 /**
- * å°†æ•°ç»„è½¬ä¸ºsqllist
- * @param L  sqllistæŒ‡é’ˆ
- * @param a è¾“å…¥æ•°ç»„
- * @param n é•¿åº¦
+ * ½«Êı×é×ªÎªsqllist
+ * @param L  sqllistÖ¸Õë
+ * @param a ÊäÈëÊı×é
+ * @param n ³¤¶È
  */
 void CreateList(SqlList *&L, ElemType a[], int n);
 
 /**
- * æ‰“å°sqllist
+ * ´òÓ¡sqllist
  * @param L
  */
 void DispList(SqlList *L);
@@ -42,11 +42,11 @@ bool ListIsEmpty(SqlList *L);
 
 int ListLength(SqlList *L);
 /*
- * é€»è¾‘ä½ç½®åˆ é™¤
+ * Âß¼­Î»ÖÃÉ¾³ı
  */
 bool DelElemByIndex(SqlList *&L,int index);
 /**
- * è·å–ç¬¬iä½å…ƒç´  æ²¡æœ‰è¿”å›false
+ * »ñÈ¡µÚiÎ»ÔªËØ Ã»ÓĞ·µ»Øfalse
  * @param L
  * @param i
  * @param e
@@ -54,22 +54,22 @@ bool DelElemByIndex(SqlList *&L,int index);
  */
 bool GetElem(SqlList *L, int i, ElemType &e);
 
-bool UpdataElem(SqlList *&L, int i, ElemType e);
+bool UpdateElem(SqlList *&L, int i, ElemType e);
 
 /**
- * æŸ¥æ‰¾é€»è¾‘ä½ç½®
- * @return å…ƒç´ é€»è¾‘ä½ç½®ï¼Œæ²¡æ‰¾åˆ°è¿”å›0
+ * ²éÕÒÂß¼­Î»ÖÃ
+ * @return ÔªËØÂß¼­Î»ÖÃ£¬Ã»ÕÒµ½·µ»Ø0
  */
 int LocateElem(SqlList *L, ElemType e);
 
 void AddElem(SqlList *&L, ElemType e);
 
 /**
- * æ’å…¥å…ƒç´ 
+ * ²åÈëÔªËØ
  * @param L
- * @param i  é€»è¾‘ä½ç½®
+ * @param i  Âß¼­Î»ÖÃ
  * @param e
- * @return æ˜¯å¦æ’å…¥æˆåŠŸ
+ * @return ÊÇ·ñ²åÈë³É¹¦
  */
 bool InsertElem(SqlList *&L, int i, ElemType e);
 #endif //DATASTRUCT_SQLLIST_H

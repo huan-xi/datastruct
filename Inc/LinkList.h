@@ -1,7 +1,7 @@
 //
 // Created by huanxi on 2019/3/17.
+//  带头节点的链栈
 //
-
 #ifndef DATASTRUCT_LINKLIST_H
 #define DATASTRUCT_LINKLIST_H
 

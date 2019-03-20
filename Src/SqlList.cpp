@@ -52,7 +52,7 @@ bool GetElem(SqlList *L, int i, ElemType &e) {
     return true;
 }
 
-bool UpdataElem(SqlList *&L, int i, ElemType e) {
+bool UpdateElem(SqlList *&L, int i, ElemType e) {
     if (i < 1 || i > L->length)return false;
     L->data[i - 1] = e;
     return true;
@@ -66,12 +66,11 @@ int LocateElem(SqlList *L, ElemType e) {
 }
 
 bool DelElemByIndex(SqlList *&L, int index) {
-    int i;
-    if (index < 1 || index > L->length) return false;
-    index++;
-    for (i = index; i < L->length; i--) {
-        L->data[i] = L->data[i + 1];
-    }
+    int j;
+    if(index<1||index>L->length)//i值不合法
+        return false;
+    for(j=index;j<=L->length-1;j++)//前移
+        L->data[j-1]=L->data[j];
     L->length--;
     return true;
 }
@@ -92,10 +91,4 @@ bool InsertElem(SqlList *&L, int i, ElemType e) {
         L->data[j+1]=L->data[j];
     L->data[i-1]=e;
     L->length++;
-    /*  i--;
-      for (j = L->length; j < i; j--) {
-          L->data[j - 1] = L->data[j];
-      }
-      L->data[i]=e;
-      L->length++;*/
 }

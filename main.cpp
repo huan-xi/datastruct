@@ -3,9 +3,10 @@
 
 
 int main() {
+
 //    RunLinkTest();
-    RunStudentList();
-//    RunLinkStackTest();
+//    RunStudentList();
+    RunLinkStackTest();
     return 0;
 }
 

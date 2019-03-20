@@ -116,7 +116,7 @@ void updateList(int index) {
     if (!assertList())return;
     scanf("%s", &sno);
     scanf("%s%f", &sname, &score);
-    if (UpdataElem(students, index, newStudent(sno, sname, score))) printf("更新元素成功\n");
+    if (UpdateElem(students, index, newStudent(sno, sname, score))) printf("更新元素成功\n");
     else printf("更新元素失败\n");
 }
 
