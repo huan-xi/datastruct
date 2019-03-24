@@ -12,4 +12,7 @@ int RunStudentList();
 void RunLinkStackTest();
 //进制转换
 void RunConversionTest();
+//进制转换
+void RunSeqQueueTest();
+void RunLinkQueueTest();
 #endif //DATASTRUCT_TEST_H
