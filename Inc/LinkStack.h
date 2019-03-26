@@ -7,10 +7,12 @@
 
 
 typedef int ElemType; //数据元素类型
-typedef struct StackNode {
+struct StackNode {
     ElemType data;
     struct StackNode *next;
-}StackNode, *LinkStack;
+};
+
+typedef struct StackNode StackNode, *LinkStack;
 
 void LS_Initiate(LinkStack &S);//构造一个空栈
 void LS_Free(LinkStack *S);//释放栈

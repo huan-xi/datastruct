@@ -1,14 +1,14 @@
 #include "./Test/Test.h"
 
 
-
 int main() {
 
 //    RunLinkTest();
 //    RunStudentList();
 //    RunLinkStackTest();
 //    RunConversionTest();
-    RunSeqQueueTest();
+//    RunSeqQueueTest();
+    RunLinkQueueTest();
     return 0;
 }
 
