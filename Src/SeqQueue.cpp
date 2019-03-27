@@ -52,7 +52,6 @@ void SQ_Print(SqQueue Q)
 }
 
 void SQ_In(SqQueue *Q, ElemType e)
-// 将e入队。即：插入元素e为Q的新的队尾元素。
 {
     if (SQ_IsFull(*Q))return;
     Q->elem[Q->rear] = e;
@@ -63,8 +62,8 @@ void SQ_Out(SqQueue *Q, ElemType *e)
 // 从队列Q出队一个元素，即：删除Q的队头元素，用e返回其值。
 {
     if (SQ_IsEmpty(*Q)) return;
-    Q->front = (Q->front + 1) % MAXSIZE;
     *e = Q->elem[Q->front];
+    Q->front = (Q->front + 1) % MAXSIZE;
 }
 
 void SQ_Head(SqQueue Q, ElemType *head)

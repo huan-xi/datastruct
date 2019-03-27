@@ -8,7 +8,8 @@ int main() {
 //    RunLinkStackTest();
 //    RunConversionTest();
 //    RunSeqQueueTest();
-    RunLinkQueueTest();
+//    RunLinkQueueTest();
+    RunYangHuiTriangleTest();
     return 0;
 }
 

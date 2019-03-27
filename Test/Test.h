@@ -15,4 +15,6 @@ void RunConversionTest();
 //进制转换
 void RunSeqQueueTest();
 void RunLinkQueueTest();
+//测试杨辉三角
+void RunYangHuiTriangleTest();
 #endif //DATASTRUCT_TEST_H
