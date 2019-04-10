@@ -1,6 +1,5 @@
 #include "./Test/Test.h"
-
-
+#include <stdlib.h>
 int main() {
 
 //    RunLinkTest();
@@ -9,7 +8,9 @@ int main() {
 //    RunConversionTest();
 //    RunSeqQueueTest();
 //    RunLinkQueueTest();
-    RunYangHuiTriangleTest();
+//    RunYangHuiTriangleTest();
+    HuffmanTest();
+//    system("pause");
     return 0;
 }
 

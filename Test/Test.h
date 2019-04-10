@@ -17,4 +17,5 @@ void RunSeqQueueTest();
 void RunLinkQueueTest();
 //≤‚ ‘—Óª‘»˝Ω«
 void RunYangHuiTriangleTest();
+void HuffmanTest();
 #endif //DATASTRUCT_TEST_H

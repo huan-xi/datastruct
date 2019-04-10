@@ -8,7 +8,6 @@
 
 void Conversion(int N, int r);
 
-//Äë×ªÏà³ı·¨
 void Conversion(int N, int r) {
     SqStack s;
     int a;
