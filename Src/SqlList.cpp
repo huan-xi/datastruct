@@ -2,8 +2,8 @@
 // Created by huanxi on 2019/3/7.
 //
 
-#include <malloc.h>
-#include <cstdio>
+#include <stdio.h>
+#include <stdlib.h>
 #include "../Inc/SqlList.h"
 
 

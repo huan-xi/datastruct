@@ -15,9 +15,11 @@ typedef struct {
     int lchild;
     int rchild;
 } HTNode;
+
+//可以理解为String类型
 typedef struct {
-    char cd[N];
-    int start;
+    char cd[N]; //存放哈夫曼编码
+    int start;//cd[start ... n]
 } HCode;
 
 
