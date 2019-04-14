@@ -27,5 +27,11 @@ void CreateHT(HTNode ht[], int n);
 
 void CreateHCode(HTNode ht[], HCode hcd[], int n) ;
 void DispHCode(HTNode *hc, HCode *hcd, int n);
+
+//计算深度
+int BinTreeGetDepth(HTNode ht[], int i);
+//找根节点
+int BinTreeFindRoot(HTNode *ht, int n);
+
 void DispTree(HTNode ht[], int n);
 #endif //DATASTRUCT_HUFFMANTREE_H

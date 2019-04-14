@@ -5,6 +5,10 @@
 
 #include "stdio.h"
 #include "../Inc/HuffmanTree.h"
+#include "math.h"
+#include "../Inc/SeqQueue.h"
+
+#define ElemType HTNode
 
 /*
  * 根据哈弗曼树对叶子节点求哈夫曼编码
@@ -89,9 +93,39 @@ void DispHCode(HTNode *hc, HCode *hcd, int n) {
     printf("\n平均长度=%g\n", 1.0 * sum / m);
 }
 
-void DispTree(HTNode *ht, int n) {
-    while (ht != NULL) {
-        printf(" %c", ht->data);
-        break;
+int BinTreeGetDepth(HTNode ht[], int i) {
+    if (ht[i].rchild == -1 && ht[i].lchild == -1)return 0;
+    int ld = BinTreeGetDepth(ht, ht[i].lchild);
+    int rd = BinTreeGetDepth(ht, ht[i].rchild);
+    return 1 + (ld > rd ? ld : rd);
+}
+
+/**
+ * 输出树
+ * @param ht 树
+ * @param n
+ */
+void DispTree(HTNode ht[], int i) {
+    if (ht[i].rchild == -1 && ht[i].lchild == -1)return;
+    printf("%d", ht[i].weight);
+    if (ht[i].lchild!=-1||ht[i].rchild!=-1){
+        printf("(");
+        DispTree(ht, ht[i].lchild);
+        if (ht[i].rchild != -1) printf(",");
+        DispTree(ht, ht[i].rchild);
+        printf(")");
     }
 }
+
+/**
+ * 2n -2
+ */
+int BinTreeFindRoot(HTNode *ht, int n) {
+    for (int i = 0; i <= 2 * n - 2; ++i) {
+        if (ht[i].parent == -1)
+            return i;
+    }
+}
+
+
+

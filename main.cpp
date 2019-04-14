@@ -9,7 +9,7 @@ int main() {
 //    RunSeqQueueTest();
 //    RunLinkQueueTest();
 //    RunYangHuiTriangleTest();
-    HuffmanTest();
+    RunHuffmanTest();
 //    system("pause");
     return 0;
 }

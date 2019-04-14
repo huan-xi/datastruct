@@ -5,14 +5,15 @@
 #ifndef DATASTRUCT_SEQQUEUE_H
 #define DATASTRUCT_SEQQUEUE_H
 
-
 #define  MAXSIZE 100     //最大长度
-typedef int ElemType;
-typedef  struct {
-    ElemType  *elem;     //数组空间的起始地址
+#ifndef ElemType
+#define  ElemType int
+#endif
+typedef struct {
+    ElemType *elem;     //数组空间的起始地址
     int front; // 存放队头元素的下标
     int rear;  // 存放队尾元素的下一个位置的下标
-}SqQueue;
+} SqQueue;
 
 void SQ_Initiate(SqQueue *Q);// 顺序队列的初始化，即构造一个空的顺序队列
 void SQ_Free(SqQueue *Q);// 释放顺序队列
