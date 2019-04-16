@@ -8,6 +8,7 @@
 #define N 100
 #define M 2*N-1
 
+#include <stdio.h>
 typedef struct {
     char data;
     int weight;
@@ -34,4 +35,16 @@ int BinTreeGetDepth(HTNode ht[], int i);
 int BinTreeFindRoot(HTNode *ht, int n);
 
 void DispTree(HTNode ht[], int n);
+
+//根据哈夫曼编码，编码ASCII字符到文件
+void EnCodeCharByHT(HTNode ht[],HCode *hcd, int n, char c,FILE *out);
+
+//保存哈夫曼树到文件
+void SaveHT(HTNode ht[],HCode *hcd, int n);
+//读取哈夫曼树从文件
+void ReadHT(HTNode ht[],HCode *hcd, int* n);
+
+//从文件解码ASCII字符串
+void DeCodeStringByHT(HTNode ht[]);
+
 #endif //DATASTRUCT_HUFFMANTREE_H

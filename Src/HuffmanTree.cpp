@@ -7,6 +7,7 @@
 #include "../Inc/HuffmanTree.h"
 #include "math.h"
 #include "../Inc/SeqQueue.h"
+#include "../Inc/FileCache.h"
 
 #define ElemType HTNode
 
@@ -106,9 +107,12 @@ int BinTreeGetDepth(HTNode ht[], int i) {
  * @param n
  */
 void DispTree(HTNode ht[], int i) {
-    if (ht[i].rchild == -1 && ht[i].lchild == -1)return;
+    if (ht[i].rchild == -1 && ht[i].lchild == -1) {
+        printf("%d", ht[i].weight);
+        return;
+    }
     printf("%d", ht[i].weight);
-    if (ht[i].lchild!=-1||ht[i].rchild!=-1){
+    if (ht[i].lchild != -1 || ht[i].rchild != -1) {
         printf("(");
         DispTree(ht, ht[i].lchild);
         if (ht[i].rchild != -1) printf(",");
@@ -117,14 +121,56 @@ void DispTree(HTNode ht[], int i) {
     }
 }
 
+void EnCodeCharByHT(HTNode ht[], HCode *hcd, int n, char c, FILE *out) {
+    for (int i = 0; i < n; ++i) { //找编码
+        if (ht[i].data == c) {
+            for (int k = hcd[i].start; k <= n; ++k) {
+                fputc(hcd[i].cd[k], out);
+            }
+        }
+    }
+}
+
+char filename[] = "../Res/hfmTree";
+
+void SaveHT(HTNode ht[], HCode *hcd, int n) {
+    printf("将编码保存至%s中\n", filename);
+    FILE *fp = fopen(filename, "wb");
+    if (fp == NULL) {
+        printf("Error failed to open file %s", filename);
+        return;
+    }
+    fwrite(&n, 1, sizeof(int), fp); //保存n
+    fwrite(ht, M, sizeof(HTNode), fp);//保存ht数组 数组长度，数组元素大小
+    fwrite(hcd, N, sizeof(HCode), fp);//保存hcd数组
+    fclose(fp);
+}
+
+void ReadHT(HTNode ht[], HCode *hcd, int *n) {
+    printf("从文件%s中读取编码\n", filename);
+    FILE *fp = fopen(filename, "rb");
+    if (fp == NULL) {
+        printf("Error failed to open file %s", filename);
+        return;
+    }
+    fread(n, 1, sizeof(int), fp); //读取n
+    fread(ht, M, sizeof(HTNode), fp);//保存ht数组
+    fread(hcd, N, sizeof(HCode), fp);//保存hcd数组
+}
+/*
+ *  int k=2*n-2;//根节点位置
+    if (ht[k]==)
+ * */
+
 /**
- * 2n -2
+ * 哈夫曼 2n -2
  */
 int BinTreeFindRoot(HTNode *ht, int n) {
     for (int i = 0; i <= 2 * n - 2; ++i) {
         if (ht[i].parent == -1)
             return i;
     }
+    return -1;
 }
 
 

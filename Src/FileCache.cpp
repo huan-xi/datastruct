@@ -6,7 +6,7 @@
 #include "string.h"
 #include "stdio.h"
 
-char filepath[] = "/Users/huanxi/cfile/";
+char filepath[] = "../Res/";
 
 char * GetCacheFilePath(){
     return filepath;
