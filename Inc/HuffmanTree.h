@@ -5,7 +5,7 @@
 #ifndef DATASTRUCT_HUFFMANTREE_H
 #define DATASTRUCT_HUFFMANTREE_H
 
-#define N 50
+#define N 100
 #define M 2*N-1
 
 typedef struct {
