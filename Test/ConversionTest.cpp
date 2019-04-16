@@ -13,34 +13,13 @@ void Conversion(int N, int r) {
     int a;
     SS_Initiate(s);
     while (N != 0) {
-        //»°”‡ ˝»Î’ª
+        //Âèñ‰ΩôÊï∞ÂÖ•Ê†à
         SS_Push(s, N % r);
         N /= r;
     }
     while (s.top != -1) {
         SS_Pop(s, &a);
-        switch (a) {
-            case 10:
-                printf("%c", 'A');
-                break;
-            case 11:
-                printf("%c", 'B');
-                break;
-            case 12:
-                printf("%c", 'C');
-                break;
-            case 13:
-                printf("%c", 'D');
-                break;
-            case 14:
-                printf("%c", 'E');
-                break;
-            case 15:
-                printf("%c", 'F');
-                break;
-            default:
-                printf("%d", a);
-        }
+        printf("%x", a);
 
     }
 }

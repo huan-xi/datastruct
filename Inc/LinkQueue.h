@@ -6,23 +6,23 @@
 #define DATASTRUCT_LINKQUEUE_H
 
 
-typedef int ElemType; //Êı¾İÔªËØÀàĞÍ
+typedef int ElemType; //æ•°æ®å…ƒç´ ç±»å‹
 typedef struct QNode {
     ElemType data;
     struct QNode *next;
 } QNode;
 typedef struct {
-    QNode *front;//¶ÓÍ·Ö¸Õë
-    QNode *rear; //¶ÓÎ²Ö¸Õë
+    QNode *front;//é˜Ÿå¤´æŒ‡é’ˆ
+    QNode *rear; //é˜Ÿå°¾æŒ‡é’ˆ
 } LinkQueue;
 
-void LQ_Initiate(LinkQueue *Q);//¹¹ÔìÒ»¸ö¿Õ¶ÓÁĞ
-void LQ_Free(LinkQueue *Q);//ÊÍ·Å¶ÓÁĞ
-bool LQ_IsEmpty(LinkQueue Q);// ÅĞ¶Ï¶ÓÁĞÊÇ·ñÎª¿Õ
-void LQ_Print(LinkQueue Q);// Êä³ö¶ÓÁĞ
-int LQ_Length(LinkQueue Q);// Çó¶ÓÁĞµÄ³¤¶È
-void LQ_In(LinkQueue *Q, ElemType e);// ½«eÈë¶Ó¡£¼´£º²åÈëÔªËØeÎªQµÄĞÂµÄ¶ÓÎ²ÔªËØ¡£
-void LQ_Out(LinkQueue *Q, ElemType *e);//´Ó¶ÓÁĞQ³ö¶ÓÒ»¸öÔªËØ£¬¼´£ºÉ¾³ıQµÄ¶ÓÍ·ÔªËØ£¬ÓÃe·µ»ØÆäÖµ¡£
-void LQ_Head(LinkQueue Q, ElemType *head);//»ñÈ¡¶ÓÁĞµÄ¶ÓÍ·ÔªËØ£¬ÓÃhead·µ»ØÆäÖµ¡£
+void LQ_Initiate(LinkQueue *Q);//æ„é€ ä¸€ä¸ªç©ºé˜Ÿåˆ—
+void LQ_Free(LinkQueue *Q);//é‡Šæ”¾é˜Ÿåˆ—
+bool LQ_IsEmpty(LinkQueue Q);// åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
+void LQ_Print(LinkQueue Q);// è¾“å‡ºé˜Ÿåˆ—
+int LQ_Length(LinkQueue Q);// æ±‚é˜Ÿåˆ—çš„é•¿åº¦
+void LQ_In(LinkQueue *Q, ElemType e);// å°†eå…¥é˜Ÿã€‚å³ï¼šæ’å…¥å…ƒç´ eä¸ºQçš„æ–°çš„é˜Ÿå°¾å…ƒç´ ã€‚
+void LQ_Out(LinkQueue *Q, ElemType *e);//ä»é˜Ÿåˆ—Qå‡ºé˜Ÿä¸€ä¸ªå…ƒç´ ï¼Œå³ï¼šåˆ é™¤Qçš„é˜Ÿå¤´å…ƒç´ ï¼Œç”¨eè¿”å›å…¶å€¼ã€‚
+void LQ_Head(LinkQueue Q, ElemType *head);//è·å–é˜Ÿåˆ—çš„é˜Ÿå¤´å…ƒç´ ï¼Œç”¨headè¿”å›å…¶å€¼ã€‚
 
 #endif //DATASTRUCT_LINKQUEUE_H

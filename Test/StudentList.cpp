@@ -5,15 +5,15 @@
 
 void print_header() {
     printf("************************************\n");
-    printf("Çë¸ù¾İÄúµÄĞèÇóÑ¡ÔñÈçÏÂ²Ù×÷£»\n");
-    printf("0¡¢ÍË³ö³ÌĞò\n");
-    printf("1¡¢³õÊ¼»¯Ë³Ğò±í\n");
-    printf("2¡¢²åÈëÊı¾İ\n");
-    printf("3¡¢ĞŞ¸ÄÊı¾İ\n");
-    printf("4¡¢Êä³öÊı¾İ\n");
-    printf("5¡¢É¾³ıÊı¾İ\n");
-    printf("6¡¢Ìí¼ÓÊı¾İÊı¾İ\n");
-    printf("7¡¢³É¼¨»¯·Ö\n");
+    printf("è¯·æ ¹æ®æ‚¨çš„éœ€æ±‚é€‰æ‹©å¦‚ä¸‹æ“ä½œï¼›\n");
+    printf("0ã€é€€å‡ºç¨‹åº\n");
+    printf("1ã€åˆå§‹åŒ–é¡ºåºè¡¨\n");
+    printf("2ã€æ’å…¥æ•°æ®\n");
+    printf("3ã€ä¿®æ”¹æ•°æ®\n");
+    printf("4ã€è¾“å‡ºæ•°æ®\n");
+    printf("5ã€åˆ é™¤æ•°æ®\n");
+    printf("6ã€æ·»åŠ æ•°æ®æ•°æ®\n");
+    printf("7ã€æˆç»©åŒ–åˆ†\n");
     printf("************************************\n");
 }
 
@@ -38,13 +38,13 @@ int RunStudentList() {
     int f = -1, index;
     while (f != 0) {
         print_header();
-        printf("ÇëÊäÈëÊı×ÖÑ¡Ôñ¹¦ÄÜ>>");
+        printf("è¯·è¾“å…¥æ•°å­—é€‰æ‹©åŠŸèƒ½>>");
         scanf("%d", &f);
-        getchar(); //ÎüÊÕ×Ö·û Ææ¹ÖµÄÎÊÌâ
+        getchar(); //å¸æ”¶å­—ç¬¦ å¥‡æ€ªçš„é—®é¢˜
         switch (f) {
             case 1 :
                 InitList(students);
-                printf("Ë³Ğò±í³õÊ¼»¯Íê±Ï£¡\n");
+                printf("é¡ºåºè¡¨åˆå§‹åŒ–å®Œæ¯•ï¼\n");
                 break;
             case 2:
                 insertList();
@@ -53,7 +53,7 @@ int RunStudentList() {
                 addList();
                 break;
             case 3:
-                printf("ÇëÊäÈëÒªĞŞ¸ÄµÚ¼¸¸öÑ§ÉúµÄÊı¾İ>>");
+                printf("è¯·è¾“å…¥è¦ä¿®æ”¹ç¬¬å‡ ä¸ªå­¦ç”Ÿçš„æ•°æ®>>");
                 scanf("%d", &index);
                 updateList(index);
                 break;
@@ -62,17 +62,17 @@ int RunStudentList() {
                 DispList(students);
                 break;
             case 5:
-                printf("ÇëÊäÈëÒªÉ¾³ıµÚ¼¸¸öÑ§ÉúµÄÊı¾İ>>");
+                printf("è¯·è¾“å…¥è¦åˆ é™¤ç¬¬å‡ ä¸ªå­¦ç”Ÿçš„æ•°æ®>>");
                 scanf("%d", &index);
                 delStudent(index);
                 break;
             case 7:
-                //Êä³öÁ½´Î
+                //è¾“å‡ºä¸¤æ¬¡
                 break;
             case 0:
                 break;
             default:
-                printf("Ã»ÓĞ¸Ã¹¦ÄÜ£¬Çë´ÓĞÂÑ¡Ôñ\n");
+                printf("æ²¡æœ‰è¯¥åŠŸèƒ½ï¼Œè¯·ä»æ–°é€‰æ‹©\n");
         }
     }
     DestroyList(students);
@@ -88,7 +88,7 @@ void insertList() {
     char end = 0;
     int index = 0;
     if (!assertList())return;
-    printf("ÇëÊäÈëÄúÒª²åÈëµÄÑ§Éú±íÖĞµÄÑ§ÉúĞòºÅ¡¢Ñ§ºÅ¡¢Ãû×Ö¡¢·ÖÊı(ÓÃ¿Õ¸ñ¸ô¿ª£¬ÈôÊäÈë½áÊøÇëÔÚ×îºóÊäÈë#ºÅ)\n");
+    printf("è¯·è¾“å…¥æ‚¨è¦æ’å…¥çš„å­¦ç”Ÿè¡¨ä¸­çš„å­¦ç”Ÿåºå·ã€å­¦å·ã€åå­—ã€åˆ†æ•°(ç”¨ç©ºæ ¼éš”å¼€ï¼Œè‹¥è¾“å…¥ç»“æŸè¯·åœ¨æœ€åè¾“å…¥#å·)\n");
     while (end != '#') {
         scanf("%d%s", &index, &sno);
         scanf("%s%f%c", &sname, &score, &end);
@@ -96,28 +96,28 @@ void insertList() {
     }
 }
 
-//¶ÏÑÔlistÒÑ³õÊ¼»¯
+//æ–­è¨€listå·²åˆå§‹åŒ–
 bool assertList() {
-    if (students == NULL)printf("Ñ§Éú±íÎ´³õÊ¼»¯\n");
+    if (students == NULL)printf("å­¦ç”Ÿè¡¨æœªåˆå§‹åŒ–\n");
     return students != NULL;
 }
 
 void delStudent(int index) {
     if (!assertList())return;
-    if (DelElemByIndex(students, index)) printf("É¾³ıÔªËØ³É¹¦\n");
-    else printf("É¾³ıÔªËØÊ§°Ü\n");
+    if (DelElemByIndex(students, index)) printf("åˆ é™¤å…ƒç´ æˆåŠŸ\n");
+    else printf("åˆ é™¤å…ƒç´ å¤±è´¥\n");
 }
 
 void updateList(int index) {
-    printf("ÇëÊäÈëÄúÒªĞŞ¸ÄµÄÑ§ÉúÑ§ºÅ¡¢Ãû×Ö¡¢·ÖÊı");
+    printf("è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹çš„å­¦ç”Ÿå­¦å·ã€åå­—ã€åˆ†æ•°");
     char sname[8];
     char sno[12];
     float score;
     if (!assertList())return;
     scanf("%s", &sno);
     scanf("%s%f", &sname, &score);
-    if (UpdateElem(students, index, newStudent(sno, sname, score))) printf("¸üĞÂÔªËØ³É¹¦\n");
-    else printf("¸üĞÂÔªËØÊ§°Ü\n");
+    if (UpdateElem(students, index, newStudent(sno, sname, score))) printf("æ›´æ–°å…ƒç´ æˆåŠŸ\n");
+    else printf("æ›´æ–°å…ƒç´ å¤±è´¥\n");
 }
 
 void addList() {
@@ -126,7 +126,7 @@ void addList() {
     float score;
     char end = 0;
     if (!assertList())return;
-    printf("ÇëÊäÈëÄúÒªÌí¼Óµ½µÄÑ§Éú±íÖĞµÄÑ§ÉúÑ§ºÅ¡¢Ãû×Ö¡¢·ÖÊı(ÓÃ¿Õ¸ñ¸ô¿ª£¬ÈôÊäÈë½áÊøÇëÔÚ×îºóÊäÈë#ºÅ)\n");
+    printf("è¯·è¾“å…¥æ‚¨è¦æ·»åŠ åˆ°çš„å­¦ç”Ÿè¡¨ä¸­çš„å­¦ç”Ÿå­¦å·ã€åå­—ã€åˆ†æ•°(ç”¨ç©ºæ ¼éš”å¼€ï¼Œè‹¥è¾“å…¥ç»“æŸè¯·åœ¨æœ€åè¾“å…¥#å·)\n");
     while (end != '#') {
         scanf("%s", &sno);
         scanf("%s%f%c", &sname, &score, &end);
@@ -138,7 +138,7 @@ void addList() {
 Student newStudent(char *sno, char *sname, float score) {
     Student s;
     if (!strlen(sno) || !strlen(sname) || score < 0) {
-        printf("ÊäÈë²ÎÊı´íÎó\n");
+        printf("è¾“å…¥å‚æ•°é”™è¯¯\n");
         return s;
     }
     s.score = score;

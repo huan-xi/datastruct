@@ -19,17 +19,17 @@ void CreateList(SqlList *&L, ElemType a[], int n) {
 
 void DispList(SqlList *L) {
     if (L->length == 0) {
-        printf("»¹Ã»ÓĞÊı¾İ\n");
+        printf("è¿˜æ²¡æœ‰æ•°æ®\n");
         return;
     }
     for (int i = 0; i < L->length; ++i) {
-        printf("µÚ%dÑ§ÉúĞÅÏ¢£º%s %s %.2f\n", i + 1, L->data[i].sno, L->data[i].sname, L->data[i].score);
+        printf("ç¬¬%då­¦ç”Ÿä¿¡æ¯ï¼š%s %s %.2f\n", i + 1, L->data[i].sno, L->data[i].sname, L->data[i].score);
     }
     printf("\n");
 }
 
 void InitList(SqlList *&L) {
-    //·ÖÅä¿Õ¼ä
+    //åˆ†é…ç©ºé—´
     L = static_cast<SqlList *>(malloc(sizeof(SqlList)));
     L->length = 0;
 }
@@ -60,16 +60,16 @@ bool UpdateElem(SqlList *&L, int i, ElemType e) {
 
 int LocateElem(SqlList *L, ElemType e) {
     /*  int i = 0;
-      while (i < L->length && e != L->data[i])i++; //½á¹¹ÌåÒªÖØĞ´ÏàµÈ·½·¨
+      while (i < L->length && e != L->data[i])i++; //ç»“æ„ä½“è¦é‡å†™ç›¸ç­‰æ–¹æ³•
       if (i >= L->length)return 0;
       return i + 1;*/
 }
 
 bool DelElemByIndex(SqlList *&L, int index) {
     int j;
-    if(index<1||index>L->length)//iÖµ²»ºÏ·¨
+    if(index<1||index>L->length)//iå€¼ä¸åˆæ³•
         return false;
-    for(j=index;j<=L->length-1;j++)//Ç°ÒÆ
+    for(j=index;j<=L->length-1;j++)//å‰ç§»
         L->data[j-1]=L->data[j];
     L->length--;
     return true;
@@ -85,9 +85,9 @@ void AddElem(SqlList *&L, ElemType e) {
 bool InsertElem(SqlList *&L, int i, ElemType e) {
     int j;
     if (i < 1 || i > L->length + 1)return false;
-    if(L->length==MaxSize)//±íÂú
+    if(L->length==MaxSize)//è¡¨æ»¡
          return false;
-    for(j=L->length-1;j>=i-1;j--)//ºóÒÆ
+    for(j=L->length-1;j>=i-1;j--)//åç§»
         L->data[j+1]=L->data[j];
     L->data[i-1]=e;
     L->length++;

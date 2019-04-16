@@ -49,7 +49,7 @@ int f[128] = {0};
 
 void dispCodeAndTree();
 
-//ASCIIÂë ÎÄ±¾ÆµÂÊÍ³¼Æ
+//ASCIIç  æ–‡æœ¬é¢‘ç‡ç»Ÿè®¡
 void CountCharFromFile(FILE *fp) {
     char c;
     while ((c = fgetc(fp)) != EOF) {
@@ -57,7 +57,7 @@ void CountCharFromFile(FILE *fp) {
     }
 }
 
-//¹¹½¨Ò¶×Ó
+//æ„å»ºå¶å­
 void buildHT() {
     n = 0;
     for (int i = 0; i < 128; ++i) {
@@ -71,23 +71,23 @@ void buildHT() {
 
 void printHeader() {
     printf("************************************\n");
-    printf("Çë¸ù¾İÄúµÄĞèÇóÑ¡ÔñÈçÏÂ²Ù×÷£»\n");
-    printf("0¡¢ÍË³ö³ÌĞò\n");
-    printf("1¡¢ÊäÈë×Ö·ûÆµÂÊ´´½¨±àÂë²¢ÇÒ±£´æµ½hfmTree\n");
-    printf("2¡¢´ÓhfmTreeÖĞ¶ÁÈ¡¹ş·òÂüÊ÷£¬ºÍ¹ş·òÂü±àÂëµ½ÄÚ´æ\n");
-    printf("3¡¢Êä³öµ±Ç°ÄÚ´æÖĞ¹ş·òÂüÊ÷£¬ºÍ¹ş·òÂü±àÂë\n");
-    printf("4¡¢½«ToBeTran.txt±àÂëÊä³öµ½CodeFile.txt\n");
-    printf("5¡¢½«CodeFile.txt½âÂëÊä³öµ½TextFile.txt\n");
-    printf("6¡¢Í³¼ÆÎÄ¼ş×Ö·û×Ô¶¯±àÂë\n");
-    printf("7¡¢¹ş·òÂüÑ¹Ëõ£¬Ñ¹Ëõascii.txtÎÄ¼şµ½code.hz\n");
-    printf("8¡¢¹ş·òÂü½âÑ¹£¬½âÑ¹code.hzµ½asciiTest.txt\n");
+    printf("è¯·æ ¹æ®æ‚¨çš„éœ€æ±‚é€‰æ‹©å¦‚ä¸‹æ“ä½œï¼›\n");
+    printf("0ã€é€€å‡ºç¨‹åº\n");
+    printf("1ã€è¾“å…¥å­—ç¬¦é¢‘ç‡åˆ›å»ºç¼–ç å¹¶ä¸”ä¿å­˜åˆ°hfmTree\n");
+    printf("2ã€ä»hfmTreeä¸­è¯»å–å“ˆå¤«æ›¼æ ‘ï¼Œå’Œå“ˆå¤«æ›¼ç¼–ç åˆ°å†…å­˜\n");
+    printf("3ã€è¾“å‡ºå½“å‰å†…å­˜ä¸­å“ˆå¤«æ›¼æ ‘ï¼Œå’Œå“ˆå¤«æ›¼ç¼–ç \n");
+    printf("4ã€å°†ToBeTran.txtç¼–ç è¾“å‡ºåˆ°CodeFile.txt\n");
+    printf("5ã€å°†CodeFile.txtè§£ç è¾“å‡ºåˆ°TextFile.txt\n");
+    printf("6ã€ç»Ÿè®¡æ–‡ä»¶å­—ç¬¦è‡ªåŠ¨ç¼–ç \n");
+    printf("7ã€å“ˆå¤«æ›¼å‹ç¼©ï¼Œå‹ç¼©ascii.txtæ–‡ä»¶åˆ°code.hz\n");
+    printf("8ã€å“ˆå¤«æ›¼è§£å‹ï¼Œè§£å‹code.hzåˆ°asciiTest.txt\n");
     printf("************************************\n");
 }
 
 
 /*
- * ±àÂëÎÄ¼ş
- * ¸ù¾İ´æÔÚÄÚ´æ×ÜµÄ¹ş·òÂü±àÂë£¬½«inÖĞ±àÂëÊä³öµ½out ÎÄ¼şÖĞ
+ * ç¼–ç æ–‡ä»¶
+ * æ ¹æ®å­˜åœ¨å†…å­˜æ€»çš„å“ˆå¤«æ›¼ç¼–ç ï¼Œå°†inä¸­ç¼–ç è¾“å‡ºåˆ°out æ–‡ä»¶ä¸­
  */
 void encodeFile(FILE *in, FILE *out) {
     char c;
@@ -97,12 +97,12 @@ void encodeFile(FILE *in, FILE *out) {
 }
 
 /*
- * ½âÂëÎÄ¼ş
- * ¸ù¾İÄÚ´æÖĞµÄ¹ş·òÂü±àÂë£¬½«inÖĞ½âÂëÊä³öµ½out ÎÄ¼şÖĞ
+ * è§£ç æ–‡ä»¶
+ * æ ¹æ®å†…å­˜ä¸­çš„å“ˆå¤«æ›¼ç¼–ç ï¼Œå°†inä¸­è§£ç è¾“å‡ºåˆ°out æ–‡ä»¶ä¸­
  */
 void decodeFile(FILE *in, FILE *out) {
     char c;
-    int k = 2 * n - 2; //¸ù½Úµã
+    int k = 2 * n - 2; //æ ¹èŠ‚ç‚¹
     while ((c = fgetc(in)) != EOF) {
         if (c == '0') k = ht[k].lchild;
         else k = ht[k].rchild;
@@ -115,12 +115,12 @@ void decodeFile(FILE *in, FILE *out) {
 }
 
 /*
- * Êä³öcodeFile
+ * è¾“å‡ºcodeFile
  */
 void dispCodeFile(FILE *in) {
     char c;
     int i = 0;
-    int count = 50;//50 »»ĞĞ
+    int count = 50;//50 æ¢è¡Œ
     while ((c = fgetc(in)) != EOF) {
         i++;
         printf("%c", c);
@@ -133,7 +133,7 @@ void dispCodeFile(FILE *in) {
 }
 
 
-//ÔËĞĞ¹ş·òÂü²âÊÔ
+//è¿è¡Œå“ˆå¤«æ›¼æµ‹è¯•
 void RunHuffmanTest() {
     FILE *in;
     FILE *out;
@@ -141,16 +141,16 @@ void RunHuffmanTest() {
     int f = -1, index;
     while (f != 0) {
         printHeader();
-        printf("ÇëÊäÈëÊı×ÖÑ¡Ôñ¹¦ÄÜ>>");
+        printf("è¯·è¾“å…¥æ•°å­—é€‰æ‹©åŠŸèƒ½>>");
         scanf("%d", &f);
-        getchar(); //ÎüÊÕ×Ö·û Ææ¹ÖµÄÎÊÌâ
+        getchar(); //å¸æ”¶å­—ç¬¦ å¥‡æ€ªçš„é—®é¢˜
         switch (f) {
             case 1:
-                printf("ÇëÊäÈë×Ö·û¼¯´óĞ¡n>>");
+                printf("è¯·è¾“å…¥å­—ç¬¦é›†å¤§å°n>>");
                 scanf("%d", &n);
                 printf("\n");
                 for (int i = 0; i < n; ++i) {
-                    printf("ÇëÊäÈëµÚ%i¸ö×Ö·û,ºÍÆä¶ÔÓ¦µÄÈ¨ÖµÁĞ(Èç£ºa 123)>>", i + 1);
+                    printf("è¯·è¾“å…¥ç¬¬%iä¸ªå­—ç¬¦,å’Œå…¶å¯¹åº”çš„æƒå€¼åˆ—(å¦‚ï¼ša 123)>>", i + 1);
                     scanf("\n%c%d", chars + i, fnum + i);
                     printf("\n");
                 }
@@ -158,31 +158,31 @@ void RunHuffmanTest() {
                     ht[i].data = chars[i];
                     ht[i].weight = fnum[i];
                 }
-                printf("ÄúÊäÈëµÄ²ÎÊıÎª:\n");
+                printf("æ‚¨è¾“å…¥çš„å‚æ•°ä¸º:\n");
                 printHT();
                 CreateHT(ht, n);
-                printf("·òÂüÊ÷¼ÆËãÍê±Ï:");
+                printf("å¤«æ›¼æ ‘è®¡ç®—å®Œæ¯•:");
                 DispTree(ht, 2 * n - 2);
                 printf("\n");
                 CreateHCode(ht, hcd, n);
-                printf("¹ş·òÂü±àÂëÉú³ÉÍê±Ï:");
+                printf("å“ˆå¤«æ›¼ç¼–ç ç”Ÿæˆå®Œæ¯•:");
                 DispHCode(ht, hcd, n);
                 SaveHT(ht, hcd, n);
-                printf("±£´æÍê±Ï\n");
+                printf("ä¿å­˜å®Œæ¯•\n");
                 break;
             case 3:
                 dispCodeAndTree();
                 break;
             case 5:
                 if (n==0){
-                    printf("ÄÚ´æÖĞÃ»ÓĞ±àÂëĞÅÏ¢£¬´ÓÎÄ¼şÖĞ¶ÁÈ¡");
+                    printf("å†…å­˜ä¸­æ²¡æœ‰ç¼–ç ä¿¡æ¯ï¼Œä»æ–‡ä»¶ä¸­è¯»å–");
                     ReadHT(ht, hcd, &n);
-                    printf("¶ÁÈ¡Íê±Ï\n");
+                    printf("è¯»å–å®Œæ¯•\n");
                 }
                 in = fopen("../Res/CodeFile.txt", "r");
                 out = fopen("../Res/TextFile.txt", "w");
                 decodeFile(in, out);
-                printf("\n½âÂëÍê±Ï");
+                printf("\nè§£ç å®Œæ¯•");
                 fclose(in);
                 fclose(out);
                 break;
@@ -190,14 +190,14 @@ void RunHuffmanTest() {
                 in = fopen("../Res/ToBeTran.txt", "r");
                 out = fopen("../Res/CodeFile.txt", "w");
                 if (in == NULL || out == NULL) {
-                    printf("´ò¿ªÎÄ¼şÊ§°Ü");
+                    printf("æ‰“å¼€æ–‡ä»¶å¤±è´¥");
                     return;
                 }
-                //±àÂë
+                //ç¼–ç 
                 encodeFile(in, out);
                 fclose(in);
                 fclose(out);
-                //Êä³ö±àÂëÎÄ¼ş
+                //è¾“å‡ºç¼–ç æ–‡ä»¶
                 in = fopen("../Res/CodeFile.txt", "r");
                 dispCodeFile(in);
                 printf("\n");
@@ -205,17 +205,17 @@ void RunHuffmanTest() {
                 break;
             case 2:
                 ReadHT(ht, hcd, &n);
-                printf("¶ÁÈ¡Íê±Ï\n");
+                printf("è¯»å–å®Œæ¯•\n");
                 break;
             case 6:
                  in = fopen("../Res/ToBeTran.txt", "r");
                 if (in == NULL) {
-                    printf("´ò¿ªÎÄ¼şÊ§°Ü");
+                    printf("æ‰“å¼€æ–‡ä»¶å¤±è´¥");
                     return;
                 }
                 CountCharFromFile(in);
                 buildHT();
-                printf("Í³¼ÆÍê±Ï:\n");
+                printf("ç»Ÿè®¡å®Œæ¯•:\n");
                 printHT();
                 CreateHT(ht, n);
                 CreateHCode(ht, hcd, n);
@@ -223,19 +223,19 @@ void RunHuffmanTest() {
                 break;
             case 7:
             case 8:
-                printf("´ıÊµÏÖ");
+                printf("å¾…å®ç°");
                 break;
         }
     }
 }
 
 void dispCodeAndTree() {
-    if (n == 0)printf("µ±Ç°Ã»ÓĞĞÅÏ¢\n");
+    if (n == 0)printf("å½“å‰æ²¡æœ‰ä¿¡æ¯\n");
     else {
-        printf("¹ş·òÂüÊ÷Îª:");
+        printf("å“ˆå¤«æ›¼æ ‘ä¸º:");
         DispTree(ht, 2 * n - 2);
         printf("\n");
-        printf("¹ş·òÂü±àÂëÎª");
+        printf("å“ˆå¤«æ›¼ç¼–ç ä¸º");
         DispHCode(ht, hcd, n);
     }
 }

@@ -1,45 +1,45 @@
 //
 // Created by huanxi on 2019/3/17.
-//  ´øÍ·½ÚµãµÄÁ´Õ»
+//  å¸¦å¤´èŠ‚ç‚¹çš„é“¾æ ˆ
 //
 #ifndef DATASTRUCT_LINKLIST_H
 #define DATASTRUCT_LINKLIST_H
 
 typedef int ElemType;
 typedef struct LNode{
-    ElemType   data;       //Êı¾İÓò
-    struct LNode  *next;   //Ö¸ÕëÓò
-}LNode,*LinkList;     // LinkListÎªÖ¸Ïò½á¹¹ÌåLNodeµÄÖ¸ÕëÀàĞÍ
+    ElemType   data;       //æ•°æ®åŸŸ
+    struct LNode  *next;   //æŒ‡é’ˆåŸŸ
+}LNode,*LinkList;     // LinkListä¸ºæŒ‡å‘ç»“æ„ä½“LNodeçš„æŒ‡é’ˆç±»å‹
 
-//µ¥Á´±íµÄ³õÊ¼»¯£¬¼´£º¹¹ÔìÒ»¸ö´øÍ·½áµãµÄ¿ÕµÄµ¥Á´±í
+//å•é“¾è¡¨çš„åˆå§‹åŒ–ï¼Œå³ï¼šæ„é€ ä¸€ä¸ªå¸¦å¤´ç»“ç‚¹çš„ç©ºçš„å•é“¾è¡¨
 void LL_Initiate(LinkList &L);
 
-// ÊÍ·ÅÁ´±íÖĞ¸÷¸ö½áµã
+// é‡Šæ”¾é“¾è¡¨ä¸­å„ä¸ªç»“ç‚¹
 void LL_Free(LinkList &L);
 
-// ÅĞ¶ÏÁ´±íÊÇ·ñÎª¿Õ¡£
+// åˆ¤æ–­é“¾è¡¨æ˜¯å¦ä¸ºç©ºã€‚
 bool LL_IsEmpty(LinkList L);
 
-// Êä³öÕû¸öÁ´±í¡£
+// è¾“å‡ºæ•´ä¸ªé“¾è¡¨ã€‚
 void LL_Print(LinkList L);
-// ÊäÈën¸öÊı¾İÔªËØ£¬²ÉÓÃÍ·²å·¨£¬´´½¨Ò»¸ö´øÍ·½áµãµÄµ¥Á´±íL¡£
+// è¾“å…¥nä¸ªæ•°æ®å…ƒç´ ï¼Œé‡‡ç”¨å¤´æ’æ³•ï¼Œåˆ›å»ºä¸€ä¸ªå¸¦å¤´ç»“ç‚¹çš„å•é“¾è¡¨Lã€‚
 void LL_Create_H(LinkList &L,int n,ElemType e[]);
 void LL_InsAt(LinkList &L, int i, ElemType e);
-// ÊäÈën¸öÊı¾İÔªËØ£¬²ÉÓÃÎ²²å·¨£¬´´½¨Ò»¸ö´øÍ·½áµãµÄµ¥Á´±íL¡£
+// è¾“å…¥nä¸ªæ•°æ®å…ƒç´ ï¼Œé‡‡ç”¨å°¾æ’æ³•ï¼Œåˆ›å»ºä¸€ä¸ªå¸¦å¤´ç»“ç‚¹çš„å•é“¾è¡¨Lã€‚
 void LL_Create_R(LinkList &L, int n, ElemType e[]);
-// É¾³ıµÚÒ»¸öÖµÎªeµÄÊı¾İÔªËØ
+// åˆ é™¤ç¬¬ä¸€ä¸ªå€¼ä¸ºeçš„æ•°æ®å…ƒç´ 
 void LL_DelValue(LinkList L, ElemType e);
-// ÔÚ´øÍ·½áµãµÄµ¥Á´±íLÖĞ»ñÈ¡µÚi¸öÔªËØµÄÖµ¸³¸øe£¬iµÄÈ¡Öµ·¶Î§[1,n]
+// åœ¨å¸¦å¤´ç»“ç‚¹çš„å•é“¾è¡¨Lä¸­è·å–ç¬¬iä¸ªå…ƒç´ çš„å€¼èµ‹ç»™eï¼Œiçš„å–å€¼èŒƒå›´[1,n]
 void LL_GetAt(LinkList L, int i, ElemType *e);
 
 void LL_DelAt(LinkList L,int i);
-//ÔÚ´øÍ·½áµãµÄµ¥Á´±íLÖĞ²éÕÒµÚÒ»¸öÖµÎªeµÄÔªËØ£¬
-//ÕÒµ½Ôò½«¸ÃÔªËØÔÚÁ´±íÖĞµÄÎ»ÖÃ¸³¸øi£¬²¢·µ»Ø¸Ã½áµãÖ¸Õë£¬·ñÔòi¸³ÖµÎª0²¢·µ»Ø¿ÕÖ¸Õë
+//åœ¨å¸¦å¤´ç»“ç‚¹çš„å•é“¾è¡¨Lä¸­æŸ¥æ‰¾ç¬¬ä¸€ä¸ªå€¼ä¸ºeçš„å…ƒç´ ï¼Œ
+//æ‰¾åˆ°åˆ™å°†è¯¥å…ƒç´ åœ¨é“¾è¡¨ä¸­çš„ä½ç½®èµ‹ç»™iï¼Œå¹¶è¿”å›è¯¥ç»“ç‚¹æŒ‡é’ˆï¼Œå¦åˆ™ièµ‹å€¼ä¸º0å¹¶è¿”å›ç©ºæŒ‡é’ˆ
 LNode *LL_FindValue(LinkList L, ElemType e,int *i);
 
-//ÄæÖÃList
+//é€†ç½®List
 void LL_Reverse(LinkList &L);
 
-//·Çµİ¼õÅÅĞò
+//éé€’å‡æ’åº
 void LL_Order(LinkList &L);
 #endif //DATASTRUCT_LINKLIST_H

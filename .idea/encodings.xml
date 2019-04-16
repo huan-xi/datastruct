@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/Inc/LinkList.h" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Inc/LinkQueue.h" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Src/SqlList.cpp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Test/ConversionTest.cpp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Test/StudentList.cpp" charset="GBK" />
-    <file url="PROJECT" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Inc/LinkList.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Inc/LinkQueue.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Src/SqlList.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Test/ConversionTest.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Test/HuffmanTest.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Test/StudentList.cpp" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
