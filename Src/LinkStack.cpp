@@ -6,13 +6,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void LS_Initiate(LinkStack &S)//¹¹ÔìÒ»¸ö¿ÕÕ»
+void LS_Initiate(LinkStack &S)//æž„é€ ä¸€ä¸ªç©ºæ ˆ
 {
     S = (StackNode *) malloc(sizeof(StackNode));
     S->next = NULL;
 }
 
-void LS_Free(LinkStack *S)//ÊÍ·ÅÕ»
+void LS_Free(LinkStack *S)//é‡Šæ”¾æ ˆ
 {
     StackNode *curr, *next;
     curr = *S;
@@ -23,12 +23,12 @@ void LS_Free(LinkStack *S)//ÊÍ·ÅÕ»
     }
 }
 
-bool LS_IsEmpty(LinkStack S)//ÅÐ¶ÏÕ»ÊÇ·ñÎª¿Õ
+bool LS_IsEmpty(LinkStack S)//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 {
     return S == NULL;
 }
 
-int LS_Length(LinkStack S)//ÇóÕ»µÄ³¤¶È
+int LS_Length(LinkStack S)//æ±‚æ ˆçš„é•¿åº¦
 {
     StackNode *p;
     int n;
@@ -41,7 +41,7 @@ int LS_Length(LinkStack S)//ÇóÕ»µÄ³¤¶È
     return n;
 }
 
-void LS_Print(LinkStack S)//´ÓÕ»¶¥µ½Õ»µ×Êä³ö¸÷½áµãÊý¾Ý
+void LS_Print(LinkStack S)//ä»Žæ ˆé¡¶åˆ°æ ˆåº•è¾“å‡ºå„ç»“ç‚¹æ•°æ®
 {
     StackNode *p;
     if (LS_IsEmpty(S)) {
@@ -55,11 +55,11 @@ void LS_Print(LinkStack S)//´ÓÕ»¶¥µ½Õ»µ×Êä³ö¸÷½áµãÊý¾Ý
 }
 
 /*
- * ²åÈë
+ * æ’å…¥
  */
-void LS_Push(LinkStack &S, ElemType e)//½«ÔªËØe½øÕ»
+void LS_Push(LinkStack &S, ElemType e)//å°†å…ƒç´ eè¿›æ ˆ
 {
-    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
+    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
     StackNode *p;
     p = (StackNode *) malloc(sizeof(StackNode));
     p->data = e;
@@ -67,9 +67,9 @@ void LS_Push(LinkStack &S, ElemType e)//½«ÔªËØe½øÕ»
     S->next = p;
 }
 
-void LS_Pop(LinkStack &S, ElemType &e)//³öÕ»¡£³öÕ»ÔªËØ¸³¸øe
+void LS_Pop(LinkStack &S, ElemType &e)//å‡ºæ ˆã€‚å‡ºæ ˆå…ƒç´ èµ‹ç»™e
 {
-    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
+    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
     StackNode *p;
     if (S->next == NULL) return;
     p = S->next;
@@ -77,9 +77,9 @@ void LS_Pop(LinkStack &S, ElemType &e)//³öÕ»¡£³öÕ»ÔªËØ¸³¸øe
     S->next = p->next;
 }
 
-void LS_Top(LinkStack S, ElemType *e)//¶ÁÕ»¶¥ÔªËØ¸³¸øe¡£
+void LS_Top(LinkStack S, ElemType *e)//è¯»æ ˆé¡¶å…ƒç´ èµ‹ç»™eã€‚
 {
-    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
+    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
     if (S->next == NULL) return;
     *e = S->next->data;
 }

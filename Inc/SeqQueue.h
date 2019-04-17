@@ -5,25 +5,25 @@
 #ifndef DATASTRUCT_SEQQUEUE_H
 #define DATASTRUCT_SEQQUEUE_H
 
-#define  MAXSIZE 100     //×î´ó³¤¶È
+#define  MAXSIZE 100     //æœ€å¤§é•¿åº¦
 #ifndef ElemType
 #define  ElemType int
 #endif
 typedef struct {
-    ElemType *elem;     //Êı×é¿Õ¼äµÄÆğÊ¼µØÖ·
-    int front; // ´æ·Å¶ÓÍ·ÔªËØµÄÏÂ±ê
-    int rear;  // ´æ·Å¶ÓÎ²ÔªËØµÄÏÂÒ»¸öÎ»ÖÃµÄÏÂ±ê
+    ElemType *elem;     //æ•°ç»„ç©ºé—´çš„èµ·å§‹åœ°å€
+    int front; // å­˜æ”¾é˜Ÿå¤´å…ƒç´ çš„ä¸‹æ ‡
+    int rear;  // å­˜æ”¾é˜Ÿå°¾å…ƒç´ çš„ä¸‹ä¸€ä¸ªä½ç½®çš„ä¸‹æ ‡
 } SqQueue;
 
-void SQ_Initiate(SqQueue *Q);// Ë³Ğò¶ÓÁĞµÄ³õÊ¼»¯£¬¼´¹¹ÔìÒ»¸ö¿ÕµÄË³Ğò¶ÓÁĞ
-void SQ_Free(SqQueue *Q);// ÊÍ·ÅË³Ğò¶ÓÁĞ
-bool SQ_IsEmpty(SqQueue Q);// ÅĞ¶ÏË³Ğò¶ÓÁĞÊÇ·ñÎª¿Õ£¬Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£
-bool SQ_IsFull(SqQueue Q);// ÅĞ¶ÏË³Ğò¶ÓÁĞÊÇ·ñÎªÂú£¬ÎªÂú·µ»Øtrue,·ñÔò·µ»Øfalse¡£
-int SQ_Length(SqQueue Q);// Çó¶ÓÁĞ³¤¶È
-void SQ_Print(SqQueue Q);//ÒÀ´ÎÊä³ö¶ÓÁĞÖĞµÄÃ¿¸öÔªËØ
-void SQ_In(SqQueue *Q, ElemType e);// ½«eÈë¶Ó¡£¼´£º²åÈëÔªËØeÎªQµÄĞÂµÄ¶ÓÎ²ÔªËØ¡£
-void SQ_Out(SqQueue *Q, ElemType *e);// ´Ó¶ÓÁĞQ³ö¶ÓÒ»¸öÔªËØ£¬¼´£ºÉ¾³ıQµÄ¶ÓÍ·ÔªËØ£¬ÓÃe·µ»ØÆäÖµ¡£
-void SQ_Head(SqQueue Q, ElemType *head);// »ñÈ¡¶ÓÁĞµÄ¶ÓÍ·ÔªËØ£¬ÓÃhead·µ»ØÆäÖµ¡£
+void SQ_Initiate(SqQueue *Q);// é¡ºåºé˜Ÿåˆ—çš„åˆå§‹åŒ–ï¼Œå³æ„é€ ä¸€ä¸ªç©ºçš„é¡ºåºé˜Ÿåˆ—
+void SQ_Free(SqQueue *Q);// é‡Šæ”¾é¡ºåºé˜Ÿåˆ—
+bool SQ_IsEmpty(SqQueue Q);// åˆ¤æ–­é¡ºåºé˜Ÿåˆ—æ˜¯å¦ä¸ºç©ºï¼Œä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›falseã€‚
+bool SQ_IsFull(SqQueue Q);// åˆ¤æ–­é¡ºåºé˜Ÿåˆ—æ˜¯å¦ä¸ºæ»¡ï¼Œä¸ºæ»¡è¿”å›true,å¦åˆ™è¿”å›falseã€‚
+int SQ_Length(SqQueue Q);// æ±‚é˜Ÿåˆ—é•¿åº¦
+void SQ_Print(SqQueue Q);//ä¾æ¬¡è¾“å‡ºé˜Ÿåˆ—ä¸­çš„æ¯ä¸ªå…ƒç´ 
+void SQ_In(SqQueue *Q, ElemType e);// å°†eå…¥é˜Ÿã€‚å³ï¼šæ’å…¥å…ƒç´ eä¸ºQçš„æ–°çš„é˜Ÿå°¾å…ƒç´ ã€‚
+void SQ_Out(SqQueue *Q, ElemType *e);// ä»é˜Ÿåˆ—Qå‡ºé˜Ÿä¸€ä¸ªå…ƒç´ ï¼Œå³ï¼šåˆ é™¤Qçš„é˜Ÿå¤´å…ƒç´ ï¼Œç”¨eè¿”å›å…¶å€¼ã€‚
+void SQ_Head(SqQueue Q, ElemType *head);// è·å–é˜Ÿåˆ—çš„é˜Ÿå¤´å…ƒç´ ï¼Œç”¨headè¿”å›å…¶å€¼ã€‚
 
 
 

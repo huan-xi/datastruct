@@ -4,11 +4,21 @@
 
 #ifndef DATASTRUCT_FILECACHE_H
 #define DATASTRUCT_FILECACHE_H
-char * GetCacheFilePath();
 
-//Ğ´±äÁ¿µ½¶ş½øÖÆÎÄ¼ş
-void SaveCache(char * filename,void * var,int size, int count);
-//¶Á¶ş½øÖÆÎÄ¼şµ½±äÁ¿
-void ReadCache(char *filename,void *buffer, int size, int count);
+char *GetCacheFilePath();
+
+/**
+ * ä¿å­˜å˜é‡åˆ°ç¼“å­˜
+ * @param filename ç¼“å­˜æ–‡ä»¶å
+ * @param var å˜é‡åœ°å€
+ * @param size å¤§å°
+ * @param count æ•°é‡
+ */
+void SaveCache(char *filename, void *var, int size, int count);
+
+/*
+ * ä»æ–‡ä»¶ç¼“å­˜ä¸­è¯»å€¼åˆ°å˜é‡
+ */
+void ReadCache(char *filename, void *buffer, int size, int count);
 
 #endif //DATASTRUCT_FILECACHE_H

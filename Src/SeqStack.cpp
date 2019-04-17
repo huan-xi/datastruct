@@ -7,32 +7,32 @@
 #include <stdlib.h>
 
 void SS_Initiate(SqStack &S)
-// ˳��ջ�ĳ�ʼ����������һ���յ�˳��ջ
+// 顺序栈的初始化，即构造一个空的顺序栈
 {
     S.elem = (ElemType*)malloc(sizeof(ElemType)*MAXSIZE);
     S.top=-1;
 }
 
 void SS_Free(SqStack &S)
-// �ͷ�˳��ջ
+// 释放顺序栈
 {
     free(S.elem);
 }
 
 bool SS_IsEmpty(SqStack S)
-// �ж�˳��ջ�Ƿ�Ϊ��
+// 判断顺序栈是否为空
 {
     return S.top==-1;
 }
 
 bool SS_IsFull(SqStack S)
-// �ж�˳��ջ�Ƿ�Ϊ��
+// 判断顺序栈是否为满
 {
     return S.top==MAXSIZE-1;
 }
 
 void SS_Print(SqStack S)
-//��ջ�׵�ջ���������Ԫ��
+//从栈底到栈顶输出所有元素
 {
     int i;
     if(SS_IsEmpty(S))
@@ -47,9 +47,9 @@ void SS_Print(SqStack S)
 }
 
 void SS_Push(SqStack &S, ElemType e)
-// ����Ԫ��eΪ�µ�ջ��Ԫ��
+// 插入元素e为新的栈顶元素
 {
-    // �������ﲹ����룬��ɱ�������
+    // 请在这里补充代码，完成本关任务
     /********** Begin *********/
     if(S.top==MAXSIZE-1) return;
     S.top++;
@@ -59,18 +59,18 @@ void SS_Push(SqStack &S, ElemType e)
 }
 
 void SS_Pop(SqStack &S, ElemType *e)
-// ɾ��S��ջ��Ԫ�أ���e������ֵ
+// 删除S的栈顶元素，用e返回其值
 {
-    // �������ﲹ����룬��ɱ�������
+    // 请在这里补充代码，完成本关任务
     if(S.top==-1) return;
     *e=S.elem[S.top];
     S.top--;
 }
 
 void SS_Top(SqStack S, ElemType *e)
-// ��ȡջ��Ԫ�ظ���e
+// 获取栈顶元素赋给e
 {
-    // �������ﲹ����룬��ɱ�������
+    // 请在这里补充代码，完成本关任务
     if(S.top ==-1) return;
     *e=S.elem[S.top];
 }

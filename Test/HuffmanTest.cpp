@@ -8,6 +8,7 @@
 
 char chars[] = {};
 int fnum[] = {0};
+int f[128] = {0};
 int n = 0;
 HTNode ht[M];
 HCode hcd[N];
@@ -45,14 +46,19 @@ void printHT() {
     printf("\n");
 }
 
-int f[128] = {0};
 
 void dispCodeAndTree();
 
 //ASCII码 文本频率统计
 void CountCharFromFile(FILE *fp) {
     char c;
+    int i = 0;
     while ((c = fgetc(fp)) != EOF) {
+        i++;
+        if (c > 128 || c < 0) {
+            printf("第%d不是ASCII字符,跳过编码\n", i);
+            break;
+        }
         f[c]++;
     }
 }
@@ -133,11 +139,21 @@ void dispCodeFile(FILE *in) {
 }
 
 
+void dispCodeAndTree() {
+    if (n == 0)printf("当前没有信息\n");
+    else {
+        printf("哈夫曼树为:");
+        DispTree(ht, 2 * n - 2);
+        printf("\n");
+        printf("哈夫曼编码为");
+        DispHCode(ht, hcd, n);
+    }
+}
+
 //运行哈夫曼测试
 void RunHuffmanTest() {
     FILE *in;
     FILE *out;
-    printHeader();
     int f = -1, index;
     while (f != 0) {
         printHeader();
@@ -148,11 +164,17 @@ void RunHuffmanTest() {
             case 1:
                 printf("请输入字符集大小n>>");
                 scanf("%d", &n);
-                printf("\n");
                 for (int i = 0; i < n; ++i) {
-                    printf("请输入第%i个字符,和其对应的权值列(如：a 123)>>", i + 1);
-                    scanf("\n%c%d", chars + i, fnum + i);
-                    printf("\n");
+                    printf("请输入第%d个字符,和其对应的权值列(如：a 123)>>", i + 1);
+                    //scanf 不能先输入字符串再输入整数，自能逐字处理
+                    while ((chars[i] = getchar()) == '\n');//解决自动输入换行问题
+                    int t;
+                    scanf("%d", &t);
+                    *(fnum + i) = t;
+                }
+                if (n <= 1) {
+                    printf("无法处理,请重新输入");
+                    return;
                 }
                 for (int i = 0; i < n; ++i) {
                     ht[i].data = chars[i];
@@ -174,7 +196,7 @@ void RunHuffmanTest() {
                 dispCodeAndTree();
                 break;
             case 5:
-                if (n==0){
+                if (n == 0) {
                     printf("内存中没有编码信息，从文件中读取");
                     ReadHT(ht, hcd, &n);
                     printf("读取完毕\n");
@@ -208,34 +230,26 @@ void RunHuffmanTest() {
                 printf("读取完毕\n");
                 break;
             case 6:
-                 in = fopen("../Res/ToBeTran.txt", "r");
+                in = fopen("../Res/ToBeTran.txt", "r");
                 if (in == NULL) {
                     printf("打开文件失败");
                     return;
                 }
                 CountCharFromFile(in);
                 buildHT();
-                printf("统计完毕:\n");
-                printHT();
-                CreateHT(ht, n);
-                CreateHCode(ht, hcd, n);
-                dispCodeAndTree();
+                 printf("统计完毕:\n");
+                 printHT();
+                 CreateHT(ht, n);
+                 CreateHCode(ht, hcd, n);
+                 dispCodeAndTree();
                 break;
             case 7:
             case 8:
                 printf("待实现");
                 break;
+            case 0:
+                printf("欢迎再次使用");
+                return;
         }
-    }
-}
-
-void dispCodeAndTree() {
-    if (n == 0)printf("当前没有信息\n");
-    else {
-        printf("哈夫曼树为:");
-        DispTree(ht, 2 * n - 2);
-        printf("\n");
-        printf("哈夫曼编码为");
-        DispHCode(ht, hcd, n);
     }
 }

@@ -3,6 +3,7 @@
 #include "../Inc/SqlList.h"
 #include "./Test.h"
 
+#ifdef TEST_STUDENT
 void print_header() {
     printf("************************************\n");
     printf("请根据您的需求选择如下操作；\n");
@@ -148,3 +149,4 @@ Student newStudent(char *sno, char *sname, float score) {
 }
 
 
+#endif

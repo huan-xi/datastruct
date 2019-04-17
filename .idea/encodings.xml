@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Inc/HuffmanTree.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Inc/LinkList.h" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Inc/LinkQueue.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Inc/SeqQueue.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Src/HuffmanTree.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Src/LinkStack.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Src/SeqQueue.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Src/SeqStack.cpp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Src/SqlList.cpp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Test/ConversionTest.cpp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Test/HuffmanTest.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Test/SeqQueueTest.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Test/StudentList.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Test/Test.h" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

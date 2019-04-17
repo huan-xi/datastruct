@@ -8,38 +8,38 @@
 #include <string.h>
 
 void SQ_Initiate(SqQueue *Q)
-// Ë³Ğò¶ÓÁĞµÄ³õÊ¼»¯£¬¼´¹¹ÔìÒ»¸ö¿ÕµÄË³Ğò¶ÓÁĞ
+// é¡ºåºé˜Ÿåˆ—çš„åˆå§‹åŒ–ï¼Œå³æ„é€ ä¸€ä¸ªç©ºçš„é¡ºåºé˜Ÿåˆ—
 {
     Q->elem = (ElemType *) malloc(sizeof(ElemType) * MAXSIZE);
     Q->front = Q->rear = 0;
 }
 
 void SQ_Free(SqQueue *Q)
-// ÊÍ·ÅË³Ğò¶ÓÁĞ
+// é‡Šæ”¾é¡ºåºé˜Ÿåˆ—
 {
     free(Q->elem);
 }
 
 bool SQ_IsEmpty(SqQueue Q)
-// ÅĞ¶ÏË³Ğò¶ÓÁĞÊÇ·ñÎª¿Õ£¬Îª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£
+// åˆ¤æ–­é¡ºåºé˜Ÿåˆ—æ˜¯å¦ä¸ºç©ºï¼Œä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›falseã€‚
 {
     return Q.front == Q.rear;
 }
 
 bool SQ_IsFull(SqQueue Q)
-// ÅĞ¶ÏË³Ğò¶ÓÁĞÊÇ·ñÎªÂú£¬ÎªÂú·µ»Øtrue,·ñÔò·µ»Øfalse¡£
+// åˆ¤æ–­é¡ºåºé˜Ÿåˆ—æ˜¯å¦ä¸ºæ»¡ï¼Œä¸ºæ»¡è¿”å›true,å¦åˆ™è¿”å›falseã€‚
 {
     return (Q.rear + 1) % MAXSIZE == Q.front;
 }
 
 int SQ_Length(SqQueue Q)
-// ¶ÓÁĞ³¤¶È
+// é˜Ÿåˆ—é•¿åº¦
 {
     return (Q.rear - Q.front + MAXSIZE) % MAXSIZE;
 }
 
 void SQ_Print(SqQueue Q)
-//ÒÀ´ÎÊä³ö¶ÓÁĞÖĞµÄÃ¿¸öÔªËØ
+//ä¾æ¬¡è¾“å‡ºé˜Ÿåˆ—ä¸­çš„æ¯ä¸ªå…ƒç´ 
 {
     int i;
     if (SQ_IsEmpty(Q)) {
@@ -59,7 +59,7 @@ void SQ_In(SqQueue *Q, ElemType e)
 }
 
 void SQ_Out(SqQueue *Q, ElemType *e)
-// ´Ó¶ÓÁĞQ³ö¶ÓÒ»¸öÔªËØ£¬¼´£ºÉ¾³ıQµÄ¶ÓÍ·ÔªËØ£¬ÓÃe·µ»ØÆäÖµ¡£
+// ä»é˜Ÿåˆ—Qå‡ºé˜Ÿä¸€ä¸ªå…ƒç´ ï¼Œå³ï¼šåˆ é™¤Qçš„é˜Ÿå¤´å…ƒç´ ï¼Œç”¨eè¿”å›å…¶å€¼ã€‚
 {
     if (SQ_IsEmpty(*Q)) return;
     *e = Q->elem[Q->front];
@@ -67,7 +67,7 @@ void SQ_Out(SqQueue *Q, ElemType *e)
 }
 
 void SQ_Head(SqQueue Q, ElemType *head)
-// »ñÈ¡¶ÓÁĞµÄ¶ÓÍ·ÔªËØ£¬ÓÃhead·µ»ØÆäÖµ¡£
+// è·å–é˜Ÿåˆ—çš„é˜Ÿå¤´å…ƒç´ ï¼Œç”¨headè¿”å›å…¶å€¼ã€‚
 {
     if (SQ_IsEmpty(Q)) return;
     *head = Q.elem[Q.front];

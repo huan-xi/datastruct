@@ -4,18 +4,18 @@
 
 #ifndef DATASTRUCT_TEST_H
 #define DATASTRUCT_TEST_H
-//²âÊÔÁ´±í
+//æµ‹è¯•é“¾è¡¨
 int RunLinkTest();
-//²âÊÔÑ§Éú±í
+//æµ‹è¯•å­¦ç”Ÿè¡¨
 int RunStudentList();
-//²âÊÔÁ´Õ»
+//æµ‹è¯•é“¾æ ˆ
 void RunLinkStackTest();
-//½øÖÆ×ª»»
+//è¿›åˆ¶è½¬æ¢
 void RunConversionTest();
-//½øÖÆ×ª»»
+//è¿›åˆ¶è½¬æ¢
 void RunSeqQueueTest();
 void RunLinkQueueTest();
-//²âÊÔÑî»ÔÈı½Ç
+//æµ‹è¯•æ¨è¾‰ä¸‰è§’
 void RunYangHuiTriangleTest();
 void RunHuffmanTest();
 #endif //DATASTRUCT_TEST_H
