@@ -12,7 +12,7 @@ int f[128] = {0};
 int n = 0;
 HTNode ht[M];
 HCode hcd[N];
-
+char file[128];
 
 void printHT() {
     for (int i = 0; i < n; ++i) {
@@ -49,13 +49,15 @@ void printHT() {
 
 void dispCodeAndTree();
 
+const char *getFile(const char string[13]);
+
 //ASCII码 文本频率统计
 void CountCharFromFile(FILE *fp) {
-    char c;
+    int c;
     int i = 0;
     while ((c = fgetc(fp)) != EOF) {
         i++;
-        if (c > 128 || c < 0) {
+        if (c > 127 || c < -1) {
             printf("第%d不是ASCII字符,跳过编码\n", i);
             break;
         }
@@ -81,12 +83,11 @@ void printHeader() {
     printf("0、退出程序\n");
     printf("1、输入字符频率创建编码并且保存到hfmTree\n");
     printf("2、从hfmTree中读取哈夫曼树，和哈夫曼编码到内存\n");
-    printf("3、输出当前内存中哈夫曼树，和哈夫曼编码\n");
-    printf("4、将ToBeTran.txt编码输出到CodeFile.txt\n");
-    printf("5、将CodeFile.txt解码输出到TextFile.txt\n");
-    printf("6、统计文件字符自动编码\n");
-    printf("7、哈夫曼压缩，压缩ascii.txt文件到code.hz\n");
-    printf("8、哈夫曼解压，解压code.hz到asciiTest.txt\n");
+    printf("3、输出当前内存中哈夫曼树，和哈夫曼编码到终端\n");
+    printf("4、输出当前内存中哈夫曼树，和哈夫曼编码到hfmTree\n");
+    printf("5、将ToBeTran.txt编码输出到CodeFile.txt\n");
+    printf("6、将CodeFile.txt解码输出到TextFile.txt\n");
+    printf("7、统计文件字符自动编码\n");
     printf("************************************\n");
 }
 
@@ -195,22 +196,26 @@ void RunHuffmanTest() {
             case 3:
                 dispCodeAndTree();
                 break;
-            case 5:
+            case 4:
+                SaveHT(ht, hcd, n);
+                printf("保存完毕\n");
+                break;
+            case 6:
                 if (n == 0) {
                     printf("内存中没有编码信息，从文件中读取");
                     ReadHT(ht, hcd, &n);
                     printf("读取完毕\n");
                 }
-                in = fopen("../Res/CodeFile.txt", "r");
-                out = fopen("../Res/TextFile.txt", "w");
+                in = fopen(getFile("CodeFile.txt"), "r");
+                out = fopen(getFile("TextFile.txt"), "w");
                 decodeFile(in, out);
                 printf("\n解码完毕");
                 fclose(in);
                 fclose(out);
                 break;
-            case 4:
-                in = fopen("../Res/ToBeTran.txt", "r");
-                out = fopen("../Res/CodeFile.txt", "w");
+            case 5:
+                in = fopen(getFile("ToBeTran.txt"), "r");
+                out = fopen(getFile("CodeFile.txt"), "w");
                 if (in == NULL || out == NULL) {
                     printf("打开文件失败");
                     return;
@@ -220,7 +225,7 @@ void RunHuffmanTest() {
                 fclose(in);
                 fclose(out);
                 //输出编码文件
-                in = fopen("../Res/CodeFile.txt", "r");
+                in = fopen(getFile("CodeFile.txt"), "r");
                 dispCodeFile(in);
                 printf("\n");
                 fclose(in);
@@ -229,27 +234,28 @@ void RunHuffmanTest() {
                 ReadHT(ht, hcd, &n);
                 printf("读取完毕\n");
                 break;
-            case 6:
-                in = fopen("../Res/ToBeTran.txt", "r");
+            case 7:
+                in = fopen(getFile("ToBeTran.txt"), "r");
                 if (in == NULL) {
-                    printf("打开文件失败");
+                    printf("打开文件失败:%s",getFile("ToBeTran.txt"));
                     return;
                 }
                 CountCharFromFile(in);
                 buildHT();
-                 printf("统计完毕:\n");
-                 printHT();
-                 CreateHT(ht, n);
-                 CreateHCode(ht, hcd, n);
-                 dispCodeAndTree();
-                break;
-            case 7:
-            case 8:
-                printf("待实现");
+                printf("统计完毕:\n");
+                printHT();
+                CreateHT(ht, n);
+                CreateHCode(ht, hcd, n);
+                dispCodeAndTree();
                 break;
             case 0:
                 printf("欢迎再次使用");
                 return;
         }
     }
+}
+
+const char *getFile(const char* string) {
+    GetFilePath(file,string);
+    return file;
 }
