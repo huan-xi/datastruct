@@ -59,7 +59,7 @@ void CountCharFromFile(FILE *fp) {
         i++;
         if (c > 127 || c < -1) {
             printf("第%d不是ASCII字符,跳过编码\n", i);
-            break;
+            continue;
         }
         f[c]++;
     }

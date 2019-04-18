@@ -9,8 +9,6 @@
 #include "../Inc/SeqQueue.h"
 #include "../Inc/FileCache.h"
 
-#define ElemType HTNode
-
 /*
  * 根据哈弗曼树对叶子节点求哈夫曼编码
  * 编码过程：
@@ -89,6 +87,7 @@ void DispHCode(HTNode *hc, HCode *hcd, int n) {
             j++;
         }
         m += hc[i].weight;
+
         sum += hc[i].weight * j;
     }
     printf("\n平均长度=%g\n", 1.0 * sum / m);
@@ -131,12 +130,13 @@ void EnCodeCharByHT(HTNode ht[], HCode *hcd, int n, char c, FILE *out) {
     }
 }
 
-char filename[] = "../Res/hfmTree";
 
 void SaveHT(HTNode ht[], HCode *hcd, int n) {
+    char filename[128];
+    GetFilePath(filename, "hfmTree");
     printf("将编码保存至%s中\n", filename);
     FILE *fp = fopen(filename, "wb");
-    if (fp == NULL) {
+    if (fp == nullptr) {
         printf("Error failed to open file %s", filename);
         return;
     }
@@ -147,9 +147,11 @@ void SaveHT(HTNode ht[], HCode *hcd, int n) {
 }
 
 void ReadHT(HTNode ht[], HCode *hcd, int *n) {
+    char filename[128];
+    GetFilePath(filename, "hfmTree");
     printf("从文件%s中读取编码\n", filename);
     FILE *fp = fopen(filename, "rb");
-    if (fp == NULL) {
+    if (fp == nullptr) {
         printf("Error failed to open file %s", filename);
         return;
     }

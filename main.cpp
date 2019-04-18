@@ -1,14 +1,12 @@
 #include "./Test/Test.h"
 #include <stdlib.h>
-int main() {
 
-//    RunLinkTest();
-//    RunStudentList();
-//    RunLinkStackTest();
-//    RunConversionTest();
-//    RunSeqQueueTest();
-//    RunLinkQueueTest();
-//    RunYangHuiTriangleTest();
+/*
+ * 项目常亮配置
+ */
+
+
+int main() {
     RunHuffmanTest();
 //    system("pause");
     return 0;

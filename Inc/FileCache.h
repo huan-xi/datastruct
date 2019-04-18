@@ -5,7 +5,15 @@
 #ifndef DATASTRUCT_FILECACHE_H
 #define DATASTRUCT_FILECACHE_H
 
-char *GetCacheFilePath();
+#ifndef RES_PATH
+//资源路径
+#define RES_PATH "/Users/huanxi/.datastruct/"
+#endif
+
+char const *GetCacheFilePath();
+
+//传入文件名，获取文件地址
+void GetFilePath(char *file, char const *filename);
 
 /**
  * 保存变量到缓存

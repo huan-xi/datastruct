@@ -7,7 +7,7 @@
 
 #define  MAXSIZE 100     //最大长度
 #ifndef ElemType
-#define  ElemType int
+    #define  ElemType int
 #endif
 typedef struct {
     ElemType *elem;     //数组空间的起始地址
