@@ -81,13 +81,14 @@ void printHeader() {
     printf("************************************\n");
     printf("请根据您的需求选择如下操作；\n");
     printf("0、退出程序\n");
-    printf("1、输入字符频率创建编码并且保存到hfmTree\n");
-    printf("2、从hfmTree中读取哈夫曼树，和哈夫曼编码到内存\n");
-    printf("3、输出当前内存中哈夫曼树，和哈夫曼编码到终端\n");
-    printf("4、输出当前内存中哈夫曼树，和哈夫曼编码到hfmTree\n");
-    printf("5、将ToBeTran.txt编码输出到CodeFile.txt\n");
-    printf("6、将CodeFile.txt解码输出到TextFile.txt\n");
-    printf("7、统计文件字符自动编码\n");
+    printf("1、从终端输入字符集，生成哈夫曼编码\n");
+    printf("2、从终端输入字符集到ToBeTran.txt\n");
+    printf("3、从hfmTree中读取哈夫曼树，和哈夫曼编码到内存\n");
+    printf("4、输出当前内存中哈夫曼树，和哈夫曼编码到终端\n");
+    printf("5、输出当前内存中哈夫曼树，和哈夫曼编码到hfmTree\n");
+    printf("6、将ToBeTran.txt编码输出到CodeFile.txt\n");
+    printf("7、将CodeFile.txt解码输出到TextFile.txt\n");
+    printf("8、统计文件ToBeTran.txt自动生成最优编码\n");
     printf("************************************\n");
 }
 
@@ -155,7 +156,8 @@ void dispCodeAndTree() {
 void RunHuffmanTest() {
     FILE *in;
     FILE *out;
-    int f = -1, index;
+    char t[1024];
+    int f = -1;
     while (f != 0) {
         printHeader();
         printf("请输入数字选择功能>>");
@@ -169,7 +171,7 @@ void RunHuffmanTest() {
                     printf("请输入第%d个字符,和其对应的权值列(如：a 123)>>", i + 1);
                     //scanf 不能先输入字符串再输入整数，自能逐字处理
                     while ((chars[i] = getchar()) == '\n');//解决自动输入换行问题
-                    int t;
+                    int t; 
                     scanf("%d", &t);
                     *(fnum + i) = t;
                 }
@@ -190,17 +192,33 @@ void RunHuffmanTest() {
                 CreateHCode(ht, hcd, n);
                 printf("哈夫曼编码生成完毕:");
                 DispHCode(ht, hcd, n);
-                SaveHT(ht, hcd, n);
-                printf("保存完毕\n");
+                break;
+            case 2:
+                out=fopen(getFile("ToBeTran.txt"),"w");
+                if (out == nullptr) {
+                    printf("打开文件失败\n");
+                    return;
+                }
+                printf("请输入需要编码的字符集(最多1024字符)>>");
+                fgets(t, 1024, stdin);
+                for (int j = 0; t[j]!='\0'; ++j) {
+                    fputc(t[j], out);
+                }
+                fclose(out);
+                printf("您输入的字符集为%s\n", t);
                 break;
             case 3:
-                dispCodeAndTree();
+                ReadHT(ht, hcd, &n);
+                printf("读取完毕\n");
                 break;
             case 4:
+                dispCodeAndTree();
+                break;
+            case 5:
                 SaveHT(ht, hcd, n);
                 printf("保存完毕\n");
                 break;
-            case 6:
+            case 7:
                 if (n == 0) {
                     printf("内存中没有编码信息，从文件中读取");
                     ReadHT(ht, hcd, &n);
@@ -213,7 +231,7 @@ void RunHuffmanTest() {
                 fclose(in);
                 fclose(out);
                 break;
-            case 5:
+            case 6:
                 in = fopen(getFile("ToBeTran.txt"), "r");
                 out = fopen(getFile("CodeFile.txt"), "w");
                 if (in == NULL || out == NULL) {
@@ -230,11 +248,8 @@ void RunHuffmanTest() {
                 printf("\n");
                 fclose(in);
                 break;
-            case 2:
-                ReadHT(ht, hcd, &n);
-                printf("读取完毕\n");
-                break;
-            case 7:
+
+            case 8:
                 in = fopen(getFile("ToBeTran.txt"), "r");
                 if (in == NULL) {
                     printf("打开文件失败:%s",getFile("ToBeTran.txt"));
